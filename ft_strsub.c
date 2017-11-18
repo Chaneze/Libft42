@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 21:22:21 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 21:22:38 by caroua           ###   ########.fr       */
+/*   Created: 2017/11/18 15:53:42 by caroua            #+#    #+#             */
+/*   Updated: 2017/11/18 18:31:02 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <string.h>
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int i;
-	int j;
+	unsigned int	i;
+	char			*new;
 
 	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
+	if (!s)
 	{
+		return (NULL);
+	}
+	if ((new = (char *)malloc((len + 1) * sizeof(char))) == NULL)
+	{
+		return (NULL);
+	}
+	while (i < len)
+	{
+		new[i] = s[start];
+		start++;
 		i++;
 	}
-	while (src[j] != '\0')
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	new[len] = '\0';
+	return (new);
 }

@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 21:22:21 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 21:22:38 by caroua           ###   ########.fr       */
+/*   Created: 2017/11/18 18:12:01 by caroua            #+#    #+#             */
+/*   Updated: 2017/11/18 18:33:06 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strtrim(char const *s)
 {
-	int i;
-	int j;
+	size_t beg;
+	size_t end;
 
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
+	beg = 0;
+	if (!s)
 	{
-		i++;
+		return (NULL);
 	}
-	while (src[j] != '\0')
+	end = ft_strlen(s) - 1;
+	while ((s[beg] == ' ' || s[beg] == '\t' || s[beg] == '\n') && s[beg])
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		start++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	while ((s[end] == ' ' || s[end] == '\t' || s[end] == '\n') && s[end] \
+			&& end > beg)
+	{
+		end--;
+	}
+	return (ft_strsub(s, beg, (end - beg + 1)));
 }

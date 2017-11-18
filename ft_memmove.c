@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 21:22:21 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 21:22:38 by caroua           ###   ########.fr       */
+/*   Created: 2017/11/18 12:56:58 by caroua            #+#    #+#             */
+/*   Updated: 2017/11/18 20:47:16 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int i;
-	int j;
+	unsigned char	*tmp;
+	size_t			i;
 
 	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
+	while (i < n)
 	{
+		tmp[i] = ((unsigned char *)src)[i];
+		((unsigned char *)dst)[i] = tmp[i];
 		i++;
 	}
-	while (src[j] != '\0')
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	((unsigned char *)dst)[i] = '\0';
+	return ((unsigned char *)dst);
 }

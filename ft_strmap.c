@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 21:22:21 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 21:22:38 by caroua           ###   ########.fr       */
+/*   Created: 2017/11/18 15:13:24 by caroua            #+#    #+#             */
+/*   Updated: 2017/11/18 15:28:30 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int i;
-	int j;
+	size_t	length;
+	size_t	i;
+	char	*new;
 
 	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
+	if (!s || !f)
 	{
+		return (NULL);
+	}
+	length = ft_strlen(s);
+	if ((new = (char *)malloc((length + 1) * sizeof(char))) == NULL)
+	{
+		return (NULL);
+	}
+	while (s[i] != '\0')
+	{
+		new[i] = f(s[i]);
 		i++;
 	}
-	while (src[j] != '\0')
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	new[length] = '\0';
+	return (new);
 }

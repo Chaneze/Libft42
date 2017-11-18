@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 21:22:21 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 21:22:38 by caroua           ###   ########.fr       */
+/*   Created: 2017/11/18 19:14:25 by caroua            #+#    #+#             */
+/*   Updated: 2017/11/18 19:27:22 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+void	ft_putnbr(int nb)
 {
-	int i;
-	int j;
+	long nblong;
 
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
+	nblong = nb;
+	if (nblong < 0)
 	{
-		i++;
+		ft_putchar('-');
+		nblong = -nblong;
 	}
-	while (src[j] != '\0')
+	if (nblong < 10)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		ft_putchar('0' + nblong);
 	}
-	dest[i] = '\0';
-	return (dest);
+	else
+	{
+		ft_putnbr(nblong / 10);
+		ft_putchar('0' + (nblong % 10));
+	}
 }

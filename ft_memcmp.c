@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 21:22:21 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 21:22:38 by caroua           ###   ########.fr       */
+/*   Created: 2017/11/18 13:23:20 by caroua            #+#    #+#             */
+/*   Updated: 2017/11/18 20:48:00 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int i;
-	int j;
+	size_t i;
 
 	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
+	if (n <= 0)
+	{
+		return (0);
+	}
+	while (((unsigned char *)s1)[i] == ((unsigned char *)s2)[i] && i < n)
 	{
 		i++;
 	}
-	while (src[j] != '\0')
+	if (i == n)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		return (((unsigned char *)s1)[i - 1] - ((unsigned char *)s2)[i - 1]);
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 }
