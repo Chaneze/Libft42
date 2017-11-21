@@ -6,7 +6,7 @@
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 15:33:49 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 15:45:25 by caroua           ###   ########.fr       */
+/*   Updated: 2017/11/20 11:05:36 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@
 
 int		ft_strequ(char const *s1, char const *s2)
 {
-	size_t i;
-
-	i = 0;
-	while (s1[i] && s2[i])
+	if (s1 && s2)
 	{
-		if (s1[i] != s2[i])
+		if (ft_strcmp(s1, s2) == 0)
 		{
-			return (0);
+			return (1);
 		}
-		i++;
 	}
-	return (1);
+	return (0);
 }

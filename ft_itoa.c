@@ -6,14 +6,14 @@
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 20:00:11 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 20:25:38 by caroua           ###   ########.fr       */
+/*   Updated: 2017/11/21 10:58:25 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-long	ft_length_nb(long n)
+static long	ft_length_nb(long n)
 {
 	long size;
 
@@ -33,7 +33,7 @@ long	ft_length_nb(long n)
 	return (size);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	long i;
 	long n_long;
@@ -43,7 +43,7 @@ char	*ft_itoa(int n)
 	i = 0;
 	n_long = n;
 	length = ft_length_nb(n_long);
-	if ((new = (char **)malloc(sizeof(char) * length + 1)) == NULL)
+	if ((new = (char *)malloc(sizeof(char) * length + 1)) == NULL)
 		return (NULL);
 	if (n_long < 0)
 	{

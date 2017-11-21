@@ -6,14 +6,14 @@
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 18:40:16 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 18:59:18 by caroua           ###   ########.fr       */
+/*   Updated: 2017/11/21 11:45:57 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int		ft_nb_w(char const *s, char c)
+static int	ft_nb_w(char const *str, char c)
 {
 	int i;
 	int word;
@@ -22,17 +22,15 @@ int		ft_nb_w(char const *s, char c)
 	i = 0;
 	word = 0;
 	count = 0;
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		while (s[i] != c)
+		while (str[i] != c && str[i])
 		{
 			i++;
 			word = 1;
 		}
-		if (s[i] == c)
-		{
+		if (str[i] == c)
 			i++;
-		}
 		if (word == 1)
 		{
 			count++;
@@ -42,12 +40,12 @@ int		ft_nb_w(char const *s, char c)
 	return (count);
 }
 
-int		ft_str(char *s, char c, int i)
+static int	ft_s(char const *s, char c, int i)
 {
 	int length;
 
 	length = 0;
-	while (s[i] != c)
+	while (s[i] != c && s[i] != '\0')
 	{
 		length++;
 		i++;
@@ -55,31 +53,31 @@ int		ft_str(char *s, char c, int i)
 	return (length);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
-	char	**dest;
+	char	**dst;
 	int		i;
 	int		j;
 	int		k;
 
 	i = 0;
 	j = 0;
-	if ((dest = (char **)malloc(sizeof(dest) * (ft_nb_w(s, c) + 1))) == NULL)
+	if (!s || !(dst = (char **)malloc(sizeof(char *) * (ft_nb_w(s, c) + 1))))
 		return (NULL);
 	while (s[i] != '\0')
 	{
-		while (s[i] == c)
+		while (s[i] == c && s[i])
 			i++;
 		if (s[i] != '\0')
 		{
 			k = 0;
-			if (dest[j] = malloc(sizeof(*dest) * (ft_s(s, c, i) + 1)) == NULL)
+			if (!(dst[j] = (char *)malloc(sizeof(char) * (ft_s(s, c, i) + 1))))
 				return (NULL);
-			while (s[i] != c)
-				dest[j][k++] = s[i++];
-			dest[j++][k] = '\0';
+			while (s[i] != c && s[i])
+				dst[j][k++] = s[i++];
+			dst[j++][k] = '\0';
 		}
 	}
-	dest[j] = NULL;
-	return (dest);
+	dst[j] = NULL;
+	return (dst);
 }

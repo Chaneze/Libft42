@@ -6,7 +6,7 @@
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 20:49:30 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 20:51:23 by caroua           ###   ########.fr       */
+/*   Updated: 2017/11/19 14:49:36 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 
 char	*ft_strncpy(char *dst, char *src, size_t len)
 {
-	size_t i;
+	char *tmpdst;
 
-	i = 0;
-	while (src[i] != '\0' && i < len)
+	tmpdst = dst;
+	while (*src != '\0' && len > 0)
 	{
-		dst[i] = src[i];
-		i++;
+		*tmpdst++ = *src++;
+		len--;
 	}
-	while (src[i] == '\0' && i < n)
+	while (len > 0)
 	{
-		dst[i] = '\0';
-		i++;
+		*tmpdst++ = '\0';
+		len--;
 	}
 	return (dst);
 }

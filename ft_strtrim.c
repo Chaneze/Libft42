@@ -6,7 +6,7 @@
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 18:12:01 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 18:33:06 by caroua           ###   ########.fr       */
+/*   Updated: 2017/11/20 11:00:45 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strtrim(char const *s)
 	end = ft_strlen(s) - 1;
 	while ((s[beg] == ' ' || s[beg] == '\t' || s[beg] == '\n') && s[beg])
 	{
-		start++;
+		beg++;
 	}
 	while ((s[end] == ' ' || s[end] == '\t' || s[end] == '\n') && s[end] \
 			&& end > beg)

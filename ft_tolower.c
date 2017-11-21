@@ -6,17 +6,17 @@
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 21:29:24 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 21:30:30 by caroua           ###   ########.fr       */
+/*   Updated: 2017/11/19 14:57:27 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		tolower(int c)
+int		ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 	{
-		c = c + 40;
+		c = c + 32;
 		return (c);
 	}
 	else

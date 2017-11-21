@@ -6,7 +6,7 @@
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 15:42:58 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 15:45:46 by caroua           ###   ########.fr       */
+/*   Updated: 2017/11/20 11:08:56 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@
 
 int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	size_t i;
-
-	i = 0;
-	while (s1[i] && s2[i] && i < n)
+	if (s1 && s2)
 	{
-		if (s1[i] != s2[i])
+		if (ft_strncmp(s1, s2, n) == 0)
 		{
-			return (0);
+			return (1);
 		}
-		i++;
 	}
-	return (1);
+	return (0);
 }

@@ -6,15 +6,15 @@
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 21:21:18 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 21:24:50 by caroua           ###   ########.fr       */
+/*   Updated: 2017/11/19 14:58:46 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isacii(int c)
+int	ft_isascii(int c)
 {
-	if (c >= 'A' && c <= 'Z')
+	if (c >= 0 && c <= 127)
 	{
 		return (1);
 	}

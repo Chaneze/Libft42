@@ -6,7 +6,7 @@
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 13:09:12 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 20:47:33 by caroua           ###   ########.fr       */
+/*   Updated: 2017/11/19 13:42:52 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	{
 		if (((unsigned char *)s)[i] == (unsigned char)c)
 		{
-			return (s + i);
+			return ((void *)s + i);
 		}
 		i++;
 	}
