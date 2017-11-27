@@ -6,14 +6,14 @@
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 20:49:30 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/19 14:49:36 by caroua           ###   ########.fr       */
+/*   Updated: 2017/11/21 14:39:33 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, char *src, size_t len)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
 	char *tmpdst;
 

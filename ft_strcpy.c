@@ -6,13 +6,13 @@
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 20:43:22 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 20:48:54 by caroua           ###   ########.fr       */
+/*   Updated: 2017/11/21 14:38:56 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dst, char *src)
+char	*ft_strcpy(char *dst, const char *src)
 {
 	int i;
 

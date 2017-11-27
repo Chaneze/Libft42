@@ -6,7 +6,7 @@
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 19:08:49 by caroua            #+#    #+#             */
-/*   Updated: 2017/11/18 19:12:20 by caroua           ###   ########.fr       */
+/*   Updated: 2017/11/22 10:42:39 by caroua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@ void	ft_putendl(char const *s)
 	int i;
 
 	i = 0;
-	while (s[i] != '\0')
+	if (s)
 	{
-		ft_putchar(s[i]);
-		i++;
+		while (s[i] != '\0')
+		{
+			ft_putchar(s[i]);
+			i++;
+		}
+		ft_putchar('\n');
 	}
-	ft_putchar('\n');
 }
